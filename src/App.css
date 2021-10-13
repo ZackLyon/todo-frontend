@@ -1,38 +1,115 @@
-.App {
+header {
+  display: flex;
+  background-color: black;
+  color: white;
+  width: 100%;
+  padding: 10px;
+}
+
+header > * {
+  margin: 1vw;
+  font-size: 2rem;
+}
+
+.unclickedLink {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.activeLink {
+  font-weight: bold;
+  color: rgb(228, 245, 74);
+}
+
+.todos-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-top: 3vh;
+  list-style: none;
+}
+
+.todo {
+  color: rgb(228, 245, 74);
+  background-color: black;
+  width: 10vw;
   text-align: center;
+  padding: .5rem;
+  border-radius: .5rem;
+  font-size: 1.3rem;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.completedTodo {
+  color: rgb(247, 255, 173);
+  background-color: rgb(114, 112, 112);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.home-container {
+  height: 100vh;
+  width: 100vw;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+.home-link {
+  font-size: 10rem;
+  margin: 3rem;
+  color: rgb(228, 245, 74);
+  background-color: black;
+  padding: 2rem;
+  border-radius: 1rem;
+  cursor: pointer;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+a {
+  text-decoration: none;
 }
+
+.form-class {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-color: black;
+  height: 20vh;
+  width: 20vw;
+  padding: 5rem;
+}
+
+.form-class > * {
+  font-size: 1.5rem;
+}
+
+.form-class > label {
+  color: rgb(228, 245, 74);
+}
+
+label > input {
+  margin-left: 1vw;
+  font-size: 1.5rem;
+}
+
+.form-class > button {
+  background-color: rgb(228, 245, 74);
+  color: black;
+  width: 10vw;
+  border: none;
+  border-radius: .3vw;
+  margin-top: 1vw;
+}
+
+.create-label {
+  color: rgb(228, 245, 74);
+  font-size: 3rem;
+}
+
+.form-container {
+  display: flex;
+  justify-content: center;
+}
+
+.form-container > form {
+  margin-top: 10px;
+}
+
