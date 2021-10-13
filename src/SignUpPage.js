@@ -22,8 +22,8 @@ export default class SignUpPage extends Component {
 
   render() {
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
+      <div className="home-container">
+        <form onSubmit={this.handleSubmit} className="form-class">
           <label>
             Email
             <input type="email" onChange={(e)=>this.setState({email: e.target.value})}></input>

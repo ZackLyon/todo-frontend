@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { logIn } from './request-utils.js';
 
+import './App.css'
+
 export default class LoginPage extends Component {
   state = {
     email: null,
@@ -25,8 +27,8 @@ export default class LoginPage extends Component {
 
   render() {
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
+      <div className="home-container">
+        <form onSubmit={this.handleSubmit} className="form-class">
           <label>
             Email
             <input type="email" onChange={(e)=>this.setState({email: e.target.value})}></input>

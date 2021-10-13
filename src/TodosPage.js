@@ -36,9 +36,9 @@ export default class TodosPage extends Component {
 
     return (
       <div>
-        <div>
-          <form onSubmit={this.handleCreateSubmit}>
-            <div>
+        <div className="form-container">
+          <form onSubmit={this.handleCreateSubmit} className="form-class">
+            <div className="create-label">
               Create Todo
             </div>
             <input
@@ -47,7 +47,7 @@ export default class TodosPage extends Component {
             <button type="submit">Submit</button>
           </form>
         </div>
-        <ul>
+        <ul className="todos-container">
           {todosList.sort((a,b) => Number(a.completed) < Number(b.completed)).map(({ todo, id, completed }) => <li key={id}
           className={completed ? "todo completedTodo" : "todo uncompletedTodo"} 
           onClick={async() => { await updateTodo(token, todo,   !completed, id);

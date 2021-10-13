@@ -39,20 +39,26 @@ export default class App extends Component {
                       <div>
                         <NavLink exact className="unclickedLink" activeClassName="activeLink" to="/">Home</NavLink>
                       </div>
+                      <span>|</span>
                       <div>
                         <NavLink exact className="unclickedLink" activeClassName="activeLink" to="/signup">Sign Up</NavLink>
                       </div>
+                      <span>|</span>
                       <div>
                         <NavLink exact className="unclickedLink" activeClassName="activeLink" to="/login">Log In</NavLink>
                       </div>
+                      <span>|</span>
                       <div>
                         <NavLink onClick={() => this.setState({token: ''})} className="unclickedLink" to="/">Log Out</NavLink>
                       </div>
+                      
                       {token 
-                      ?
+                      ? <>
+                      <span>|</span>
                         <div>
                         <NavLink exact className="unclickedLink" activeClassName="activeLink" to="/todos">Todos</NavLink>
                         </div>
+                        </>
                       : <div></div>
                       }
                     </header>
