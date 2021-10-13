@@ -27,7 +27,6 @@ export default class App extends Component {
       this.setState({token: token});
 
       localStorage.setItem(TOKEN, token);
-      console.log("received token ", token);
     }
 
     render() {
@@ -49,7 +48,8 @@ export default class App extends Component {
                       </div>
                       <span>|</span>
                       <div>
-                        <NavLink onClick={() => this.setState({token: ''})} className="unclickedLink" to="/">Log Out</NavLink>
+                        <NavLink 
+                        onClick={() => {this.setState({token: ''}); localStorage.setItem(TOKEN, '')}} className="unclickedLink" to="/">Log Out</NavLink>
                       </div>
                       
                       {token 

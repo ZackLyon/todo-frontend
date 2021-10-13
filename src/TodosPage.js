@@ -11,10 +11,9 @@ export default class TodosPage extends Component {
 
   componentDidMount = async() => {
     const { token } = this.props;
-    console.log(token);
+    
     const currentTodos = await getTodos(token);
-    console.log("currentTodos ", currentTodos);
-     this.setState({todosList: currentTodos})
+    this.setState({todosList: currentTodos})
   }
 
   handleCreateSubmit = async(e) => {
@@ -32,10 +31,9 @@ export default class TodosPage extends Component {
   render() {
     const { todosList, todo } = this.state;
     const { token } = this.props;
-    // console.log(todosList);
 
     return (
-      <div>
+      <div className="todo-page">
         <div className="form-container">
           <form onSubmit={this.handleCreateSubmit} className="form-class">
             <div className="create-label">
@@ -44,12 +42,14 @@ export default class TodosPage extends Component {
             <input
               value={todo}
               onChange={e => this.setState({todo: e.target.value})}></input>
-            <button type="submit">Submit</button>
+              <div className="button-container">
+                <button type="submit">Submit</button>
+              </div>
           </form>
         </div>
         <ul className="todos-container">
-          {todosList.sort((a,b) => Number(a.completed) < Number(b.completed)).map(({ todo, id, completed }) => <li key={id}
-          className={completed ? "todo completedTodo" : "todo uncompletedTodo"} 
+          {todosList.map(({ todo, id, completed }) => <li key={id}
+          className={!completed ? "todo" : "todo completedTodo"} 
           onClick={async() => { await updateTodo(token, todo,   !completed, id);
             const currentTodos = await getTodos(token);
             this.setState({todosList: currentTodos, todo: ''});

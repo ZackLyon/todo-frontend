@@ -1,7 +1,19 @@
+:root {
+  --color-pop: rgb(238, 99, 57);
+  /* --color-pop: rgb(39, 202, 189); */
+  /* --color-pop: rgb(245, 74, 74); */
+  
+  --main-bg-color: rgb(7, 7, 7);
+  
+  --element-bg-color: rgb(221, 215, 214);
+  /* --color-pop: rgb(228, 245, 74); */
+  --color-pop-faded: rgb(243, 179, 159);
+}
+
 header {
   display: flex;
-  background-color: black;
-  color: white;
+  background-color: var(--element-bg-color);
+  color: var(--color-pop-faded);
   width: 100%;
   padding: 10px;
 }
@@ -12,14 +24,14 @@ header > * {
 }
 
 .unclickedLink {
-  color: white;
+  color: var(--color-pop-faded);
   text-decoration: none;
   cursor: pointer;
 }
 
 .activeLink {
   font-weight: bold;
-  color: rgb(228, 245, 74);
+  color: var(--color-pop);
 }
 
 .todos-container {
@@ -30,17 +42,19 @@ header > * {
 }
 
 .todo {
-  color: rgb(228, 245, 74);
-  background-color: black;
+  color: var(--color-pop);
+  background-color: var(--element-bg-color);
   width: 10vw;
   text-align: center;
   padding: .5rem;
   border-radius: .5rem;
   font-size: 1.3rem;
+  justify-self: center;
+  cursor: pointer;
 }
 
 .completedTodo {
-  color: rgb(247, 255, 173);
+  color: var(--color-pop-faded);
   background-color: rgb(114, 112, 112);
 }
 
@@ -51,13 +65,14 @@ header > * {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: var(--main-bg-color);
 }
 
 .home-link {
   font-size: 10rem;
   margin: 3rem;
-  color: rgb(228, 245, 74);
-  background-color: black;
+  color: var(--color-pop);
+  background-color: var(--element-bg-color);
   padding: 2rem;
   border-radius: 1rem;
   cursor: pointer;
@@ -70,8 +85,9 @@ a {
 .form-class {
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: space-around;
-  background-color: black;
+  background-color: var(--element-bg-color);
   height: 20vh;
   width: 20vw;
   padding: 5rem;
@@ -82,34 +98,53 @@ a {
 }
 
 .form-class > label {
-  color: rgb(228, 245, 74);
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  color: var(--color-pop);
+  font-weight: bold;
+  
 }
 
 label > input {
   margin-left: 1vw;
   font-size: 1.5rem;
+  margin-top: 10px;
+  border: none;
 }
 
-.form-class > button {
-  background-color: rgb(228, 245, 74);
-  color: black;
-  width: 10vw;
+.button-container > button {
+  background-color: var(--color-pop);
+  color: var(--element-bg-color);
+  font-size: 1.5vh;
+  width: 8vw;
+  height: 3vh;
   border: none;
   border-radius: .3vw;
   margin-top: 1vw;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 .create-label {
-  color: rgb(228, 245, 74);
+  color: var(--color-pop);
   font-size: 3rem;
 }
 
-.form-container {
+.form-container, .button-container {
   display: flex;
   justify-content: center;
 }
 
 .form-container > form {
-  margin-top: 10px;
+  margin-top: 5vh;
 }
 
+.todo-page {
+  background-color: var(--main-bg-color);
+  min-height: 100vh;
+}
+
+input {
+  border: none;
+}

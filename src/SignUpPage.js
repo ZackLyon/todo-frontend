@@ -32,7 +32,9 @@ export default class SignUpPage extends Component {
             Password
             <input type="password" onChange={(e)=>this.setState({password: e.target.value})}></input>
           </label>
-          <button type="submit">Submit</button>
+          <div className="button-container">
+            <button type="submit">Submit</button>
+          </div>
         </form>
       </div>
     )
