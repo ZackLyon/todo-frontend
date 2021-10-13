@@ -4,7 +4,8 @@ import {
     BrowserRouter as Router, 
     Route, 
     Switch,
-    NavLink
+    NavLink,
+    Redirect
 } from 'react-router-dom';
 
 import HomePage from './HomePage.js';
@@ -30,6 +31,7 @@ export default class App extends Component {
     }
 
     render() {
+      const { token } = this.state;
         return (
             <div>
                 <Router>
@@ -40,6 +42,19 @@ export default class App extends Component {
                       <div>
                         <NavLink exact className="unclickedLink" activeClassName="activeLink" to="/signup">Sign Up</NavLink>
                       </div>
+                      <div>
+                        <NavLink exact className="unclickedLink" activeClassName="activeLink" to="/login">Log In</NavLink>
+                      </div>
+                      <div>
+                        <NavLink onClick={() => this.setState({token: ''})} className="unclickedLink" to="/">Log Out</NavLink>
+                      </div>
+                      {token 
+                      ?
+                        <div>
+                        <NavLink exact className="unclickedLink" activeClassName="activeLink" to="/todos">Todos</NavLink>
+                        </div>
+                      : <div></div>
+                      }
                     </header>
 
                     <Switch>
@@ -51,12 +66,16 @@ export default class App extends Component {
                         <Route 
                             path="/login" 
                             exact
-                            render={(routerProps) => <LoginPage {...routerProps} />} 
+                            render={(routerProps) => <LoginPage
+                            handleToken={this.handleToken} {...routerProps} />} 
                         />
                         <Route 
                             path="/todos" 
                             exact
-                            render={(routerProps) => <TodosPage {...routerProps} />} 
+                            render={(routerProps) => 
+                              token ?
+                              <TodosPage token={token} {...routerProps} />
+                            : <Redirect to="/signup" />} 
                         />
                         <Route 
                             path="/" 

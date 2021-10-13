@@ -21,3 +21,11 @@ header > * {
   font-weight: bold;
   color: rgb(228, 245, 74);
 }
+
+.completedTodo {
+  color: green;
+}
+
+.uncompletedTodo {
+  color: purple;
+}
